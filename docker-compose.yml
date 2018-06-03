@@ -1,0 +1,10 @@
+version: '2'
+services:
+  raffle_webapp:
+    build: .
+    container_name: 'raffle_webapp'
+    ports:
+      - '5000:3000'
+    volumes:
+      - ./:/usr/src/raffle
+      - /usr/src/raffle/node_modules
