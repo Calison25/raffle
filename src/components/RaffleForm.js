@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import RaffleResult from "./RaffleResult";
+import RaffleResult from './RaffleResult';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap-theme.css';
 
 class RaffleForm extends Component {
     constructor(props) {
@@ -35,27 +37,52 @@ class RaffleForm extends Component {
     }
 
     render() {
+        const inputStyle = {
+              maxWidth: 80,
+        };
+
+        const formStyle = {
+              maxWidth: 500
+        };
+
         if (this.state.showResult){
            return <RaffleResult formData={this.state.formData} />;
         }
 
         return (
-           <div>
-                <form className="raffle-form" id="raffleForm" onSubmit={this.handleSubmit.bind(this)}>
-                    <label htmlFor="">
-                        Primeiro número: <input type="text" value={this.state.formData.startInterval} name="startInterval" onChange={this.handleChange}/>
-                    </label>
+           <div style={{marginTop:50}} className="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+               <div className="panel panel-info">
+                   <div className="panel-heading">
+                       <div className="panel-title">Sorteador de números aleatórios</div>
+                   </div>
 
-                    <label htmlFor="">
-                        Segundo número: <input type="text" value={this.state.formData.endInterval} name="endInterval" onChange={this.handleChange}/>
-                    </label>
+                   <div style={{paddingTop:30}} className="panel-body">
 
-                    <label htmlFor="">
-                        Quantidade de sorteados: <input type="text" value={this.state.formData.numberOfLots} name="numberOfLots" onChange={this.handleChange}/>
-                    </label>
+                        <form style={formStyle} className='form-horizontal raffle-form' id='raffleForm' onSubmit={this.handleSubmit.bind(this)}>
+                            <label className='col-md-4 control-label' htmlFor=''>Primeiro número</label>
+                            <div style={{marginBottom: 25}} className="input-group">
+                                <span className="input-group-addon"><i className="glyphicon glyphicon-user"></i></span>
+                                <input style={inputStyle} maxLength='4' className='form-control' type='text' value={this.state.formData.startInterval} name='startInterval' onChange={this.handleChange}/>
+                            </div>
 
-                    <input type="submit" value="Ok"/>
-                </form>
+                            <label className='col-md-4 control-label' htmlFor=''>Segundo número</label>
+                            <div style={{marginBottom: 25}} className="input-group">
+                                <span className="input-group-addon"><i className="glyphicon glyphicon-user"></i></span>
+                                <input style={inputStyle} maxLength='4' className='form-control' type='text' value={this.state.formData.endInterval} name='endInterval' onChange={this.handleChange}/>
+                            </div>
+
+                            <label className='col-md-4 control-label' htmlFor=''>Quantidade de sorteados</label>
+                            <div style={{marginBottom: 25}} className="input-group">
+                                <span className="input-group-addon"><i className="glyphicon glyphicon-user"></i></span>
+                                <input style={{maxWidth: 40}} maxLength='2' className='form-control' type='text' value={this.state.formData.numberOfLots} name='numberOfLots' onChange={this.handleChange}/>
+                            </div>
+
+                            <div style={{marginLeft: 120}} className="col-md-4">
+                                <button className='btn btn-info btn-block' type='submit'> Ok</button>
+                            </div>
+                        </form>
+                   </div>
+               </div>
            </div>
         );
     }

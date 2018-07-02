@@ -5,7 +5,6 @@ class RaffleContainer extends Component {
     render() {
         return (
            <div className="container">
-               <h4>Informe o intervalo a ser sorteado</h4>
                <RaffleForm/>
            </div>
         );
