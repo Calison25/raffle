@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import RaffleResult from './RaffleResult';
+import '../style/RaffleForm.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 
@@ -37,53 +38,43 @@ class RaffleForm extends Component {
     }
 
     render() {
-        const inputStyle = {
-              maxWidth: 80,
-        };
-
-        const formStyle = {
-              maxWidth: 500
-        };
-
         if (this.state.showResult){
            return <RaffleResult formData={this.state.formData} />;
         }
 
         return (
-           <div style={{marginTop:50}} className="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-               <div className="panel panel-info">
-                   <div className="panel-heading">
-                       <div className="panel-title">Sorteador de números aleatórios</div>
-                   </div>
+           <div className='row vertical-offset-100'>
+               <div className='col-md-4 col-md-offset-4'>
+                    <div className='panel panel-default'>
+                        <div className="panel-heading">
+                            <h3 className="panel-title">Sorteador de números aleatórios</h3>
+                        </div>
+                            <div className="panel-body">
+                                <form id='raffleForm' onSubmit={this.handleSubmit.bind(this)}>
+                                    <fieldset>
+                                        <div className="form-group">
+                                            <label className='col-md-4 control-label label-number' htmlFor=''>1º número</label>
+                                            <input className='form-control input-number' maxLength='4' type='text'
+                                                   value={this.state.formData.startInterval} name='startInterval' onChange={this.handleChange}/>
+                                        </div>
+                                        <div className="form-group">
+                                            <label className='col-md-4 control-label label-number' htmlFor=''>2º número</label>
+                                            <input className='form-control input-number' maxLength='4' type='text'
+                                                   value={this.state.formData.endInterval} name='endInterval' onChange={this.handleChange}/>
+                                        </div>
+                                        <div className="form-group">
+                                            <label className='col-md-4 control-label label-number' htmlFor=''>Sorteados</label>
+                                            <input style={{maxWidth: 40}} maxLength='2' className='form-control' type='text'
+                                                   value={this.state.formData.numberOfLots} name='numberOfLots' onChange={this.handleChange}/>
+                                        </div>
 
-                   <div style={{paddingTop:30}} className="panel-body">
-
-                        <form style={formStyle} className='form-horizontal raffle-form' id='raffleForm' onSubmit={this.handleSubmit.bind(this)}>
-                            <label className='col-md-4 control-label' htmlFor=''>Primeiro número</label>
-                            <div style={{marginBottom: 25}} className="input-group">
-                                <span className="input-group-addon"><i className="glyphicon glyphicon-user"></i></span>
-                                <input style={inputStyle} maxLength='4' className='form-control' type='text' value={this.state.formData.startInterval} name='startInterval' onChange={this.handleChange}/>
+                                        <button className="btn btn-lg btn-success btn-block" type="submit">Ok</button>
+                                    </fieldset>
+                                </form>
                             </div>
-
-                            <label className='col-md-4 control-label' htmlFor=''>Segundo número</label>
-                            <div style={{marginBottom: 25}} className="input-group">
-                                <span className="input-group-addon"><i className="glyphicon glyphicon-user"></i></span>
-                                <input style={inputStyle} maxLength='4' className='form-control' type='text' value={this.state.formData.endInterval} name='endInterval' onChange={this.handleChange}/>
-                            </div>
-
-                            <label className='col-md-4 control-label' htmlFor=''>Quantidade de sorteados</label>
-                            <div style={{marginBottom: 25}} className="input-group">
-                                <span className="input-group-addon"><i className="glyphicon glyphicon-user"></i></span>
-                                <input style={{maxWidth: 40}} maxLength='2' className='form-control' type='text' value={this.state.formData.numberOfLots} name='numberOfLots' onChange={this.handleChange}/>
-                            </div>
-
-                            <div style={{marginLeft: 120}} className="col-md-4">
-                                <button className='btn btn-info btn-block' type='submit'> Ok</button>
-                            </div>
-                        </form>
-                   </div>
+                        </div>
+                    </div>
                </div>
-           </div>
         );
     }
 }
