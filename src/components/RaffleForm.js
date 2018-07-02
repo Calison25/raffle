@@ -33,13 +33,13 @@ class RaffleForm extends Component {
     }
 
     render() {
-        // if (this.state.redirect){
-        //    return  <Redirect push to="/RaffleResult"/>
-        // }
+        if (this.state.redirect){
+           return <RaffleResult/>;
+        }
 
         return (
            <div>
-                <form className="raffle-form" id="raffleForm" onSubmit={this.handleSubmit}>
+                <form className="raffle-form" id="raffleForm" onSubmit={this.handleSubmit.bind(this)}>
                     <label htmlFor="">
                         Primeiro número: <input type="text" value={this.state.startInterval} name="startInterval" onChange={this.handleChange}/>
                     </label>
