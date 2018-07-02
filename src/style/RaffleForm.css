@@ -16,3 +16,20 @@
 .container {
     margin-top: 30px;
 }
+
+.error-text {
+    font-size: medium;
+    width: 480px;
+    color: black !important;
+    text-align: center;
+    margin-left: -5px;
+}
+
+.panel-body--overrite {
+    min-width: 500px;
+}
+
+.confirm-button {
+    width: 30% !important;
+    margin-left: 150px;
+}
