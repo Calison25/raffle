@@ -37,6 +37,16 @@ class RaffleForm extends Component {
         this.setState({showResult: true});
     }
 
+    disableSumitButton() {
+        const {formData} = this.state;
+
+        if(formData.startInterval === '' || formData.endInterval === '') {
+            return true;
+        }
+
+        return false;
+    }
+
     render() {
         if (this.state.showResult){
            return <RaffleResult formData={this.state.formData} />;
@@ -50,17 +60,17 @@ class RaffleForm extends Component {
                             <h3 className="panel-title">Sorteador de números aleatórios</h3>
                         </div>
                             <div className="panel-body">
-                                <form id='raffleForm' onSubmit={this.handleSubmit.bind(this)}>
+                                <form name='raffleForm' id='raffleForm' onSubmit={this.handleSubmit.bind(this)}>
                                     <fieldset>
                                         <div className="form-group">
                                             <label className='col-md-4 control-label label-number' htmlFor=''>1º número</label>
                                             <input className='form-control input-number' maxLength='4' type='text'
-                                                   value={this.state.formData.startInterval} name='startInterval' onChange={this.handleChange}/>
+                                                   value={this.state.formData.startInterval} name='startInterval' onChange={this.handleChange} required/>
                                         </div>
                                         <div className="form-group">
                                             <label className='col-md-4 control-label label-number' htmlFor=''>2º número</label>
                                             <input className='form-control input-number' maxLength='4' type='text'
-                                                   value={this.state.formData.endInterval} name='endInterval' onChange={this.handleChange}/>
+                                                   value={this.state.formData.endInterval} name='endInterval' onChange={this.handleChange} required/>
                                         </div>
                                         <div className="form-group">
                                             <label className='col-md-4 control-label label-number' htmlFor=''>Sorteados</label>
@@ -68,7 +78,7 @@ class RaffleForm extends Component {
                                                    value={this.state.formData.numberOfLots} name='numberOfLots' onChange={this.handleChange}/>
                                         </div>
 
-                                        <button className="btn btn-lg btn-success btn-block" type="submit">Ok</button>
+                                        <button disabled={this.disableSumitButton()} className="btn btn-lg btn-success btn-block" type="submit">Ok</button>
                                     </fieldset>
                                 </form>
                             </div>
