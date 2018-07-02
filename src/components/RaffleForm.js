@@ -24,15 +24,30 @@ class RaffleForm extends Component {
 
     handleChange(event) {
         if (event.target.name === 'startInterval') {
-            this.setState({formData: { ...this.state.formData, startInterval: parseInt(event.target.value)}});
+            if(event.target.value.length  > 0){
+                this.setState({formData: { ...this.state.formData, startInterval: parseInt(event.target.value)}});
+                return;
+            }
+
+            this.setState({formData: { ...this.state.formData, startInterval: ''}});
         }
 
         if (event.target.name === 'endInterval') {
-            this.setState({formData: { ...this.state.formData, endInterval: parseInt(event.target.value)}});
+            if(event.target.value.length  > 0){
+                this.setState({formData: { ...this.state.formData, endInterval: parseInt(event.target.value)}});
+                return;
+            }
+
+            this.setState({formData: { ...this.state.formData, endInterval: ''}});
         }
 
         if (event.target.name === 'numberOfLots') {
-            this.setState({formData: { ...this.state.formData, numberOfLots: parseInt(event.target.value)}});
+            if(event.target.value.length > 0){
+                this.setState({formData: { ...this.state.formData, numberOfLots: parseInt(event.target.value)}});
+                return;
+            }
+
+            this.setState({formData: { ...this.state.formData, numberOfLots: ''}});
         }
     }
 
