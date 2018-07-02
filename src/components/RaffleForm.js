@@ -5,10 +5,12 @@ class RaffleForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            startInterval: '',
-            endInterval: '',
-            numberOfLots: '',
-            redirect: false
+            formData: {
+               startInterval: '',
+               endInterval: '',
+               numberOfLots: '',
+            },
+            showResult: false
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -16,43 +18,43 @@ class RaffleForm extends Component {
 
     handleChange(event) {
         if(event.target.name === 'startInterval') {
-            this.setState({startInterval: event.target.value});
+            this.setState({formData: { ...this.state.formData, startInterval: event.target.value}});
         }
 
         if(event.target.name === 'endInterval') {
-            this.setState({endInterval: event.target.value});
+            this.setState({formData: { ...this.state.formData, endInterval: event.target.value}});
         }
 
         if(event.target.name === 'numberOfLots') {
-            this.setState({numberOfLots: event.target.value});
+            this.setState({formData: { ...this.state.formData, numberOfLots: event.target.value}});
         }
     }
 
-    handleSubmit(event) {
-        this.setState({redirect: true});
+    handleSubmit() {
+        this.setState({showResult: true});
     }
 
     render() {
-        if (this.state.redirect){
-           return <RaffleResult/>;
+        if (this.state.showResult){
+           return <RaffleResult formData={this.state.formData} />;
         }
 
         return (
            <div>
                 <form className="raffle-form" id="raffleForm" onSubmit={this.handleSubmit.bind(this)}>
                     <label htmlFor="">
-                        Primeiro número: <input type="text" value={this.state.startInterval} name="startInterval" onChange={this.handleChange}/>
+                        Primeiro número: <input type="text" value={this.state.formData.startInterval} name="startInterval" onChange={this.handleChange}/>
                     </label>
 
                     <label htmlFor="">
-                        Segundo número: <input type="text" value={this.state.endInterval} name="endInterval" onChange={this.handleChange}/>
+                        Segundo número: <input type="text" value={this.state.formData.endInterval} name="endInterval" onChange={this.handleChange}/>
                     </label>
 
                     <label htmlFor="">
-                        Quantidade de sorteados: <input type="text" value={this.state.numberOfLots} name="numberOfLots" onChange={this.handleChange}/>
+                        Quantidade de sorteados: <input type="text" value={this.state.formData.numberOfLots} name="numberOfLots" onChange={this.handleChange}/>
                     </label>
 
-                    <input type="submit" value="Ok" />
+                    <input type="submit" value="Ok"/>
                 </form>
            </div>
         );
