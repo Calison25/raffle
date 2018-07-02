@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import RaffleResult from "./RaffleResult";
+import { Redirect } from 'react-router';
 
 class RaffleForm extends Component {
     constructor(props) {
@@ -7,7 +9,8 @@ class RaffleForm extends Component {
             startInterval: '',
             endInterval: '',
             numberOfLots: '',
-        }
+            redirect: false
+        };
 
         this.handleChange = this.handleChange.bind(this);
     }
@@ -27,13 +30,17 @@ class RaffleForm extends Component {
     }
 
     handleSubmit(event) {
-        alert('formulário submetido');
+        this.setState({redirect: true});
     }
 
     render() {
+        if (this.state.redirect){
+           return  <Redirect push to="/RaffleResult"/>
+        }
+
         return (
            <div>
-                <form className="raffleForm" id="raffleForm" onSubmit={this.handleSubmit}>
+                <form className="raffle-form" id="raffleForm" onSubmit={this.handleSubmit}>
                     <label htmlFor="">
                         Primeiro número: <input type="text" value={this.state.startInterval} name="startInterval" onChange={this.handleChange}/>
                     </label>
