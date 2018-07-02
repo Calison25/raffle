@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import RaffleResult from "./RaffleResult";
-import { Redirect } from 'react-router';
 
 class RaffleForm extends Component {
     constructor(props) {
@@ -34,9 +33,9 @@ class RaffleForm extends Component {
     }
 
     render() {
-        if (this.state.redirect){
-           return  <Redirect push to="/RaffleResult"/>
-        }
+        // if (this.state.redirect){
+        //    return  <Redirect push to="/RaffleResult"/>
+        // }
 
         return (
            <div>
