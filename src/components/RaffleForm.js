@@ -2,23 +2,52 @@ import React, { Component } from 'react';
 import ConfirmButton from "./ConfirmButton";
 
 class RaffleForm extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            startInterval: '',
+            endInterval: '',
+            numberOfLots: '',
+        }
+
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(event) {
+        if(event.target.name === 'startInterval') {
+            this.setState({startInterval: event.target.value});
+        }
+
+        if(event.target.name === 'endInterval') {
+            this.setState({endInterval: event.target.value});
+        }
+
+        if(event.target.name === 'numberOfLots') {
+            this.setState({numberOfLots: event.target.value});
+        }
+    }
+
+    handleSubmit(event) {
+        alert('formulário submetido');
+    }
+
     render() {
         return (
            <div>
-                <form className="raffleForm" id="raffleForm">
+                <form className="raffleForm" id="raffleForm" onSubmit={this.handleSubmit}>
                     <label htmlFor="">
-                        Primeiro número: <input type="text" name="startInterval"/>
+                        Primeiro número: <input type="text" value={this.state.startInterval} name="startInterval" onChange={this.handleChange}/>
                     </label>
 
                     <label htmlFor="">
-                        Segundo número: <input type="text" name="endInterval"/>
+                        Segundo número: <input type="text" value={this.state.endInterval} name="endInterval" onChange={this.handleChange}/>
                     </label>
 
                     <label htmlFor="">
-                        Quantidade de sorteados: <input type="text" name="numberOfLots"/>
+                        Quantidade de sorteados: <input type="text" value={this.state.numberOfLots} name="numberOfLots" onChange={this.handleChange}/>
                     </label>
-                    
-                    <ConfirmButton/>
+
+                    <input type="submit" value="Ok" />
                 </form>
            </div>
         );
