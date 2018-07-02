@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ConfirmButton from "./ConfirmButton";
 
 class RaffleForm extends Component {
     constructor(props) {
