@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 import RaffleContainer from "./components/RaffleContainer";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to Raffle WebApp</h1>
-        </header>
+          <head>
+              <link rel="stylesheet" href="https://bootswatch.com/4/cyborg/bootstrap.min.css" type="text/css"></link>
+          </head>
           <RaffleContainer/>
       </div>
     );

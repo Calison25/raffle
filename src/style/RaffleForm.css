@@ -1,9 +1,16 @@
 .input-number {
     max-width: 80px;
+    border-radius: 10px;
+}
+
+.input-borded {
+    border: 1px solid !important;
 }
 
 .label-number{
     margin-top: 7px;
+    font-size: 1.5rem;
+    color: black;
 }
 
 .container {

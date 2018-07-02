@@ -64,17 +64,17 @@ class RaffleForm extends Component {
                                     <fieldset>
                                         <div className="form-group">
                                             <label className='col-md-4 control-label label-number' htmlFor=''>1º número</label>
-                                            <input className='form-control input-number' maxLength='4' type='text'
+                                            <input className='form-control input-number input-borded' maxLength='4' type='text'
                                                    value={this.state.formData.startInterval} name='startInterval' onChange={this.handleChange} required/>
                                         </div>
                                         <div className="form-group">
                                             <label className='col-md-4 control-label label-number' htmlFor=''>2º número</label>
-                                            <input className='form-control input-number' maxLength='4' type='text'
+                                            <input className='form-control input-number input-borded' maxLength='4' type='text'
                                                    value={this.state.formData.endInterval} name='endInterval' onChange={this.handleChange} required/>
                                         </div>
                                         <div className="form-group">
                                             <label className='col-md-4 control-label label-number' htmlFor=''>Sorteados</label>
-                                            <input style={{maxWidth: 40}} maxLength='2' className='form-control' type='text'
+                                            <input style={{maxWidth: 40}} maxLength='2' className='form-control input-borded' type='text'
                                                    value={this.state.formData.numberOfLots} name='numberOfLots' onChange={this.handleChange}/>
                                         </div>
 
