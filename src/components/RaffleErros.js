@@ -10,7 +10,7 @@ class RaffleErros extends Component {
 
     errorMessage(){
        if (this.props.errorLevel === Error.invalideInterval){
-           return <div className="error-text alert alert-danger">
+           return <div className="error-text alert  alert-dismissible alert-danger">
                     <strong>O 1º número não pode ser maior que o 2º número</strong>
                   </div>;
        }
