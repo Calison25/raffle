@@ -15,6 +15,7 @@ class RaffleResult extends Component {
         const {formData} = this.props;
         const min = Math.ceil(formData.startInterval);
         const max = Math.floor(formData.endInterval);
+        const numberOfLots = formData.numberOfLots;
 
         return Math.floor(Math.random() * (max - min) + min);
     }
@@ -41,8 +42,8 @@ class RaffleResult extends Component {
                     </div>
                 </div>
 
-                <button onClick={this.handleRetry.bind(this)} className="btn btn-lg btn-primary btn-block">Sortear novamente</button>
-                <button onClick={() => this.setState({back: true})} className="btn btn-lg btn-secondary btn-block">Voltar</button>
+                <button className="btn btn-lg btn-primary sort-again-button" onClick={this.handleRetry.bind(this)}>Sortear novamente</button>
+                <button className="btn btn-lg btn-secondary back-button" onClick={() => this.setState({back: true})}>Voltar</button>
             </div>
         );
     };

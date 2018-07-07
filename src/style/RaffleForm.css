@@ -33,3 +33,12 @@
     width: 30% !important;
     margin-left: 150px;
 }
+
+.sort-again-button {
+    width: 15%;
+}
+
+.back-button {
+    width: 15%;
+    margin-left: 5px;
+}
