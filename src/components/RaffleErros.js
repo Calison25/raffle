@@ -4,10 +4,6 @@ import '../style/RaffleForm.css';
 
 
 class RaffleErros extends Component {
-    constructor(props){
-        super(props);
-    }
-
     errorMessage(){
        if (this.props.errorLevel === Error.invalideInterval){
            return <div className="error-text alert  alert-dismissible alert-danger">

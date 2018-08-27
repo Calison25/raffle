@@ -17,6 +17,10 @@ class RaffleResult extends Component {
         const max = Math.floor(formData.endInterval);
         const numberOfLots = formData.numberOfLots;
 
+        if (numberOfLots > 1) {
+
+        }
+
         return Math.floor(Math.random() * (max - min) + min);
     }
 

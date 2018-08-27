@@ -73,11 +73,7 @@ class RaffleForm extends Component {
     hasEmptyFields() {
         const {formData} = this.state;
 
-        if(formData.startInterval === '' || formData.endInterval === '') {
-            return true;
-        }
-
-        return false;
+        return formData.startInterval === '' || formData.endInterval === '';
     }
 
     render() {
@@ -112,7 +108,7 @@ class RaffleForm extends Component {
                                                    value={this.state.formData.numberOfLots} name='numberOfLots' onChange={this.handleChange}/>
                                         </div>
 
-                                        <button disabled={this.hasEmptyFields()} className="confirm-button btn btn-lg btn-success btn-block" type="submit">Ok</button>
+                                        <button disabled={this.hasEmptyFields()} className="confirm-button btn btn-lg btn-success btn-block" type="submit">Sortear</button>
                                     </fieldset>
                                 </form>
                             </div>
