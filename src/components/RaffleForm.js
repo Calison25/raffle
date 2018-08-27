@@ -95,7 +95,7 @@ class RaffleForm extends Component {
                             <div className="panel-body">
                                 <form className='raffle-form' name='raffleForm' id='raffleForm' onSubmit={this.handleSubmit.bind(this)}>
                                     <fieldset>
-                                        <RaffleErros errorLevel={this.getError()}/>;
+                                        <RaffleErros errorLevel={this.getError()}/>
                                         <div className="form-group">
                                             <label className='col-md-4 control-label label-number' htmlFor=''>1º número</label>
                                             <input className='form-control input-number input-borded' maxLength='4' type='text'
