@@ -12,20 +12,37 @@ class RaffleResult extends Component {
     }
 
     calculateResult() {
+        let result  = [];
         const {formData} = this.props;
         const min = Math.ceil(formData.startInterval);
         const max = Math.floor(formData.endInterval);
         const numberOfLots = formData.numberOfLots;
 
-        if (numberOfLots > 1) {
+        let iterator = 0;
 
+
+        while (iterator < numberOfLots){
+            let tempResult = Math.floor(Math.random() * (max - min) + min);
+
+            if (!result.includes(tempResult)){
+                result.push(tempResult);
+                iterator ++;
+            }
         }
 
-        return Math.floor(Math.random() * (max - min) + min);
+        return result;
     }
 
     handleRetry() {
         this.setState({result: this.calculateResult()});
+    }
+
+    showResult(){
+        if (this.state.result.length > 1){
+            return <p className="card-text"> Os números sorteados foram {this.state.result.join(',')}</p>
+        }
+
+        return <p className="card-text">O número sorteado foi {this.state.result[0]}</p>
     }
 
     render() {
@@ -41,7 +58,7 @@ class RaffleResult extends Component {
                     </div>
                     <div className="card-body">
                         <h5>
-                            <p className="card-text">O número sorteado foi {this.state.result}.</p>
+                            {this.showResult()}
                         </h5>
                     </div>
                 </div>
