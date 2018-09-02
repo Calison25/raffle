@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import RaffleForm from "./RaffleForm";
+import Raffle from "../containers/Raffle";
 
 
 class RaffleResult extends Component {
@@ -46,7 +46,7 @@ class RaffleResult extends Component {
 
     render() {
         if (this.state.back) {
-            return <RaffleForm/>
+            return <Raffle/>
         }
 
         return (

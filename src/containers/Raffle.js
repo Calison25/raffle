@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import RaffleResult from './RaffleResult';
+import RaffleResult from '../components/RaffleResult';
 import '../style/RaffleForm.css';
 import Error from '../consts/Error.js';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
-import RaffleErros from "./RaffleErros";
+import RaffleErros from "../components/RaffleErros";
 
-class RaffleForm extends Component {
+class Raffle extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -119,4 +119,4 @@ class RaffleForm extends Component {
     }
 }
 
-export default RaffleForm;
+export default Raffle;
