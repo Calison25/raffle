@@ -20,7 +20,6 @@ class RaffleResult extends Component {
 
         let iterator = 0;
 
-
         while (iterator < numberOfLots){
             let tempResult = Math.floor(Math.random() * (max - min) + min);
 
