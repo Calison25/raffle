@@ -1,8 +1,6 @@
-FROM node:carbon
+FROM node:alpine
 
 WORKDIR /usr/src/raffle
-
-#RUN npm install create-react-app -g
 
 COPY package*.json ./
 
@@ -10,6 +8,6 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 3000
+EXPOSE 9008
 
 CMD [ "npm", "start" ]
